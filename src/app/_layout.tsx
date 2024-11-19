@@ -42,6 +42,16 @@ export default function RootLayoutNav() {
             </TouchableOpacity>
           )
         }} />
+         <Stack.Screen name= "(modal)/location-search" options={{
+          presentation: 'fullScreenModal',
+          headerTitle: 'Select Location',
+          headerTitleAlign: 'center',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Ionicons name="close-outline" size={28} color={Colors.primary} />
+            </TouchableOpacity>
+          )
+        }} />
       </Stack>
       </BottomSheetModalProvider>
       </GestureHandlerRootView>
