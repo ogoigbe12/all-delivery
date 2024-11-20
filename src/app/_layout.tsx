@@ -14,10 +14,10 @@ import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 
-
 export const unstable_settings = {
-  initialRouteName: 'index'
-}
+  // Ensure that reloading on `/modal` keeps a back button present.
+  initialRouteName: 'index',
+};
 
 
 export default function RootLayoutNav() {
