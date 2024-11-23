@@ -1,9 +1,4 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
-import { Stack, useNavigation } from "expo-router";
+import { Stack, useNavigation, useRouter } from "expo-router";
 import "react-native-reanimated";
 import CustomHeader from "../components/CustomHeader";
 import React from "react";
@@ -22,9 +17,10 @@ export const unstable_settings = {
 
 export default function RootLayoutNav() {
  const navigation = useNavigation();
+ const router = useRouter();
   return (
     <GestureHandlerRootView>
-    <BottomSheetModalProvider>
+        <BottomSheetModalProvider>
       <Stack>
         <Stack.Screen name="index" options={{header: () => <CustomHeader/>}}/>
         <Stack.Screen name= "(modal)/filter" options={{
@@ -55,13 +51,25 @@ export default function RootLayoutNav() {
         <Stack.Screen name= "(modal)/dish" options={{
           presentation: 'modal',
           headerTitle: '',
-          headerTitleAlign: 'center',
           headerTransparent: true,
           headerLeft: () => (
             <TouchableOpacity 
             style={{backgroundColor: '#fff', borderRadius: 20, padding: 6}}
-            onPress={() => navigation.goBack()}>
+            onPress={() => {router.push('/details')}}>
+      
               <Ionicons name="close-outline" size={28} color={Colors.primary} />
+            </TouchableOpacity>
+          )
+          
+        }} />
+        <Stack.Screen name= "basket" options={{
+  
+          headerTitle: 'Basket',
+          headerTitleAlign: 'center',
+          headerLeft: () => (
+            <TouchableOpacity 
+            onPress={() => navigation.goBack()}>
+              <Ionicons name="arrow-back" size={28} color={Colors.primary} />
             </TouchableOpacity>
           )
         }} />

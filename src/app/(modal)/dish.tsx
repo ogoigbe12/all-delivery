@@ -1,24 +1,31 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams, useRouter } from 'expo-router'
 import { getDishById } from '@/assets/data/restaurant';
 import { Colors } from '@/src/constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Animated, { FadeIn } from 'react-native-reanimated';
+import * as Haptics from 'expo-haptics';
+import useBasketStore from '@/store/basketStore';
 
 const Dish = () => {
   const {id} = useLocalSearchParams();
-  const item = getDishById(+id)
+  const item = getDishById(+id)!
+  const router = useRouter()
+  const {addProduct} = useBasketStore();
 
   const addToCart = () => {
-
+    addProduct(item)
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    router.push('/details')
   }
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}} edges={['bottom']}>
     <View style={styles.container}>
-      <Image source={item?.img} style={styles.image}/>
+      <Image  source={item?.img} style={styles.image}/>
       <View style={{padding: 20}}>
-        <Text style={styles.dishName}>{item?.name}</Text>
-        <Text style={styles.dishInfo}>{item?.info}</Text>
+        <Text  style={styles.dishName}>{item?.name}</Text>
+        <Text  style={styles.dishInfo}>{item?.info}</Text>
       </View>
       <View style={styles.footer}>
         <TouchableOpacity style={styles.fullButton} onPress={addToCart}>

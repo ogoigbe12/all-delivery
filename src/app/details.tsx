@@ -4,14 +4,17 @@ import ParallaxScrollView from '../components/ParallaxScrollView'
 import { restaurants } from '@/assets/data/home';
 import { restaurant } from '@/assets/data/restaurant';
 import { Colors } from '../constants/Colors';
-import { Link, useNavigation } from 'expo-router';
+import { Link, useNavigation, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
+import useBasketStore from '@/store/basketStore';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Details = () => {
   const [activeIndex, setActiveIndex]= useState(0)
   const navigation = useNavigation();
+  const router = useRouter();
   const DATA = restaurant.food.map((item, index) => ({
     title: item.category,
     data: item.meals,
@@ -23,6 +26,8 @@ const Details = () => {
     opacity: opacity.value,
   }))
 
+  const {items, total} = useBasketStore();
+
   const scrollRef = useRef<ScrollView>(null);
   const itemsRef = useRef<TouchableOpacity[]>([]);
   useLayoutEffect(() => {
@@ -31,7 +36,7 @@ const Details = () => {
       headerTitle: '',
       headerTintColor: Colors.primary,
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.roundButton}>
+        <TouchableOpacity onPress={() => navigation.goBack} style={styles.roundButton}>
           <Ionicons name='arrow-back' size={24} color={Colors.primary}/>
         </TouchableOpacity>
       ),
@@ -109,6 +114,8 @@ const Details = () => {
       </View>
     </ParallaxScrollView>
 
+      
+      {/* Sticky segments */}
       <Animated.View style={[styles.stickySegments, animatedStyles]}>
         <View style={styles.segmentsShadow}>
         <ScrollView ref={scrollRef} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.segmentScrollView}>
@@ -124,6 +131,21 @@ const Details = () => {
         </ScrollView>
         </View>
       </Animated.View>
+       {/* Footer Basket */}
+
+       {items > 0 && (
+        <View style={styles.footer}>
+          <SafeAreaView edges={['bottom']} style={{backgroundColor: '#fff'}}>
+            <Link href={'/basket'} asChild>
+            <TouchableOpacity style={styles.fullButton}>
+            <Text style={styles.basket}>{items}</Text>
+            <Text style={styles.footerText}>View Basket</Text>
+            <Text style={styles.basketTotal}>${total}</Text>
+            </TouchableOpacity>
+            </Link>
+          </SafeAreaView>
+        </View>
+       )}
     </>
   )
   
@@ -253,7 +275,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: -10 },
     shadowOpacity: 0.1,
     shadowRadius: 10,
-    paddingTop: 20,
+    paddingTop: 5,
   },
   fullButton: {
     backgroundColor: Colors.primary,
