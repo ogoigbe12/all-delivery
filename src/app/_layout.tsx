@@ -43,7 +43,7 @@ export default function RootLayoutNav() {
           headerTitle: 'Select Location',
           headerTitleAlign: 'center',
           headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => router.replace('/')}>
               <Ionicons name="close-outline" size={28} color={Colors.primary} />
             </TouchableOpacity>
           )
@@ -55,7 +55,7 @@ export default function RootLayoutNav() {
           headerLeft: () => (
             <TouchableOpacity 
             style={{backgroundColor: '#fff', borderRadius: 20, padding: 6}}
-            onPress={() => {router.push('/details')}}>
+            onPress={() => {router.replace('/details')}}>
       
               <Ionicons name="close-outline" size={28} color={Colors.primary} />
             </TouchableOpacity>

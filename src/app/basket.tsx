@@ -176,7 +176,7 @@ const Basket = () => {
 
   return (
     <>
-      {order && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fallSpeed={2500} fadeOut={true} autoStart={true} />}
+      {order && <ConfettiCannon count={100} origin={{ x: -10, y: 0 }} fallSpeed={2500} fadeOut={true} autoStart={true} />}
       {order && (
         <View style={{ marginTop: '50%', padding: 20, alignItems: 'center' }}>
           <Text style={{ fontSize: 24, fontWeight: 'bold', textAlign: 'center' }}>Thank you for your order!</Text>
@@ -229,7 +229,7 @@ const Basket = () => {
           />
 
           <View style={styles.footer}>
-            <SafeAreaView edges={['bottom']} style={{ backgroundColor: '#fff',paddingBottom: '100%', flex: 1, }}>
+            <SafeAreaView edges={['bottom']} style={{ backgroundColor: '#fff',paddingBottom: '70%',}}>
               <TouchableOpacity style={styles.fullButton} onPress={startCheckout}>
                 <Text style={styles.footerText}>Order now</Text>
               </TouchableOpacity>

@@ -31,7 +31,7 @@ const BottomSheet = forwardRef<Ref>((props, ref)  => {
             </View>
 
             <Text style={styles.subHeader}>Your Location</Text>
-            <Link href={'/(modal)/location-search'} asChild>
+            <Link href={'/(modal)/location-search'} asChild onPress={() => dismiss()}>
             <TouchableOpacity>
               <View style= {styles.items}>
                 <Ionicons name='location-outline' size={20} color={Colors.medium} />
