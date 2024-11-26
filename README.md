@@ -1,4 +1,4 @@
-# React Native FinTech Clone with Clerk
+# React Native Delivery Clone 
 
 This is a React Native Delivery app clone a user-friendly platform that connects customers with a variety of local restaurants, allowing them to browse menus, place orders, and track deliveries in real time. This app was inspired by the [Deliveroo](https://deliveroo.co.uk/) app.
 
@@ -34,12 +34,5 @@ Additional features:
 <img src="./screenshots/charts.gif" width=30%>
 <img src="./screenshots/icon.gif" width=30%>
 
-</div> --> -->
+</div> --> # React Native Delivery Clone 
 
-<!-- ## 🚀 More
-
-**Take a shortcut from web developer to mobile development fluency with guided learning**
-
-Enjoyed this project? Learn to use React Native to build production-ready, native mobile apps for both iOS and Android based on your existing web development skills.
-
-<a href="https://galaxies.dev"><img src="banner.png" height="auto" width="100%"></a> -->
