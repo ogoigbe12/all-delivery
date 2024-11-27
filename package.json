@@ -34,6 +34,7 @@
     "expo-status-bar": "~2.0.0",
     "expo-symbols": "~0.2.0",
     "expo-system-ui": "~4.0.4",
+    "expo-updates": "~0.26.9",
     "expo-web-browser": "~14.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -62,18 +63,18 @@
     "typescript": "^5.3.3"
   },
   "expo": {
-  "doctor": {
-    "reactNativeDirectoryCheck": {
-      "exclude": [
-        "deprecated-react-native-prop-types",
-        "expo-checkbox",
-        "expo-doctor",
-        "react-native-confetti-cannon",
-        "react-native-bouncy-checkbox"
-      ],
-      "listUnknownPackages": false
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "deprecated-react-native-prop-types",
+          "expo-checkbox",
+          "expo-doctor",
+          "react-native-confetti-cannon",
+          "react-native-bouncy-checkbox"
+        ],
+        "listUnknownPackages": false
+      }
     }
-  }
-},
+  },
   "private": true
 }

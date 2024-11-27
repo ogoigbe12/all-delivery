@@ -8,6 +8,11 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/unsplash.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.ogoigbe1.alldelivery"
@@ -46,6 +51,12 @@
       "eas": {
         "projectId": "f019999e-6135-4460-8b1f-20002b42d9dd"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f019999e-6135-4460-8b1f-20002b42d9dd"
     }
   }
 }
